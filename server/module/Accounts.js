@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 const {isEmail} = require("validator")
-const bcrpyt = require('bcrpyt')
+
 
 
 const AccountsUser = new mongoose.Schema({
@@ -24,12 +24,8 @@ const AccountsUser = new mongoose.Schema({
     }
 })
 
-AccountsUser.pre("save", async(next)=>{
-    const salt = await bcrpyt.genSalt(10)
-    this.password = await bcrpyt.hash(this.password,salt)
-    next()
-})
 
-const Accounts = mongoose.model('Accounts', AccountsUser)
 
-module.exports = Accounts
+const Account = mongoose.model('Account', AccountsUser)
+
+module.exports = Account

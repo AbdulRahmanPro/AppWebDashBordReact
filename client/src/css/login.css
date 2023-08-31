@@ -1,0 +1,44 @@
+.Section_login {
+    display: inline-flex;
+    height: 85vh;
+    width: 62vh;
+    padding: 97px 40px 47px 40px;
+    flex-direction: column;
+    border-radius: 20px;
+    border: 1px solid var(--Glass1-Stroke-Carey, #AFAFAF);
+    background: var(--Glass1-Fill-Carey, linear-gradient(321deg, rgba(191, 191, 191, 0.06) 5.98%, rgba(0, 0, 0, 0.00) 66.28%), rgba(0, 0, 0, 0.14));
+    box-shadow: -8px 4px 5px 0px rgba(0, 0, 0, 0.24);
+    backdrop-filter: blur(26.5px);
+}
+
+.form_inputs {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.form_input {
+    display: flex;
+    width: auto;
+    height: 45px;
+    padding: 14px 16px;
+    align-items: center;
+    border-radius: 12px;
+    border: 1px solid #FFF;
+    outline: none;
+    backdrop-filter: blur(26.5px);
+    background-color: rgba(0, 0, 0, 0);
+    /* اللون الأسود مع شفافية كاملة */
+}
+.box_but_login
+.but_login {
+    display: flex;
+    height: 45px;
+    width: auto;
+    padding: 14px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 12px;
+    background: linear-gradient(91deg, #628EFF 9.91%, #8740CD 53.29%, #580475 91.56%);
+}

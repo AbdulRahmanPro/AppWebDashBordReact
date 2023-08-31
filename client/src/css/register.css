@@ -1,15 +1,29 @@
-
-.background_login{
-    background-image: url("../img/background.svg");
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans', sans-serif;
+    background-repeat: no-repeat;
+    background-clip: content-box;
+    background-size: cover;
+    color: white;
+    overflow: hidden;
+}
+.container{
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 20px ;
+}
+.background_register{
+    background-image: url("../img/Signup.svg");
     background-repeat: no-repeat;
     background-clip: content-box;
     background-size: cover;
 }
-.Section_login {
+.Section_register {
     display: inline-flex;
     height: 90vh;
     width: 62vh;
-    padding: 97px 40px 47px 40px;
+    padding: 17px 40px 47px 40px;
     flex-direction: column;
     border-radius: 20px;
     border: 1px solid var(--Glass1-Stroke-Carey, #AFAFAF);
@@ -37,7 +51,7 @@
     background-color: rgba(0, 0, 0, 0);
     /* اللون الأسود مع شفافية كاملة */
 }
-.but_login {
+.but_singup {
     display: flex;
     height: 45px;
     width: auto;
@@ -46,5 +60,5 @@
     align-items: center;
     gap: 10px;
     border-radius: 12px;
-    background: linear-gradient(91deg, #628EFF 9.91%, #8740CD 53.29%, #580475 91.56%);
+background: linear-gradient(91deg, #2E4CEE 9.91%, #221EBF 53.29%, #040F75 91.56%);
 }

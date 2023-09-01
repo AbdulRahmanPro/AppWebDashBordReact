@@ -29,9 +29,11 @@ const registerUser = async (req, res) => {
       name,
     });
     await newUser.save();
+
+    // Generate a token
     const token = generateToken(newUser._id)
-    res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge });
-    return res.status(201).json({ message: "Account created successfully" });
+
+    res.status(201).json({ message: "Account created successfully", token });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: "An error occurred during account creation" });
@@ -41,11 +43,9 @@ const loginUser = async (req, res) => {
   const { email, password } = req.body;
   try {
     const account = await Account.findOne({ email });
-
     if (account && (await bcrypt.compare(password, account.password))) {
       const token = generateToken(account._id);
-      res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge });
-      res.status(200).json({ message: "Login succeeded" });
+      res.status(200).json({ message: "Login succeeded",token });
     } else {
       res.status(401).json({ message: "Incorrect email or password" });
     }

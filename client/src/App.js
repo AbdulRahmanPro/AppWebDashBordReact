@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PageLogin from './Pagelogin';
 import RegisterPage from './PageRegister';
+import PageDashBord from './PageDashBord';
+import "./css/dashbord.css"
 import './css/App.css';
 import './css/login.css';
 import './css/register.css'
@@ -15,7 +17,7 @@ export default function App() {
         <Routes>
           <Route path="/login" element={<PageLogin /> } />
           <Route path="/register" element={<RegisterPage/>}/>
-
+          <Route path='/admin/dashbord' element={<PageDashBord></PageDashBord>}/>
         </Routes>
       </Router>
     </div>

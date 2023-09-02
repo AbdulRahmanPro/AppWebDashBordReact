@@ -48,9 +48,9 @@ export default function Register(props) {
                         </div>
                     </form>
                     <div className="flex space-x-5 items-center justify-center mt-5">
-                        <img src={require("./icon/devicon_google.png")} alt="Google" />
-                        <img src={require("./icon/logos_facebook.png")} alt="Facebook" />
-                        <img src={require("./icon/bi_github.png")} alt="GitHub" />
+                        <img src={require("../icon/devicon_google.png")} alt="Google" />
+                        <img src={require("../icon/logos_facebook.png")} alt="Facebook" />
+                        <img src={require("../icon/bi_github.png")} alt="GitHub" />
                     </div>
                     <Link to="/login" className=' text-center mt-10'>Already Registered? Login</Link>
                 </section>

@@ -44,9 +44,9 @@ export default function LoginCard() {
           </form>
 
           <div className="flex space-x-5 items-center justify-center mt-5" onSubmit={Submit}>
-            <img src={require("./icon/devicon_google.png")} alt="Google" />
-            <img src={require("./icon/logos_facebook.png")} alt="Facebook" />
-            <img src={require("./icon/bi_github.png")} alt="GitHub" />
+            <img src={require("../icon/devicon_google.png")} alt="Google" />
+            <img src={require("../icon/logos_facebook.png")} alt="Facebook" />
+            <img src={require("../icon/bi_github.png")} alt="GitHub" />
           </div>
 
           <Link to="/register" className=' text-center mt-10'>Don’t have an account ? Signup</Link>

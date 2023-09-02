@@ -1,0 +1,41 @@
+.table_Wapre{
+    width: 100%;
+}
+.background_dashbord {
+    margin: 0;
+    padding: 0;
+}
+
+/* تعيين أنماط الجدول */
+.table {
+    display: block;
+    width: 70%;
+    max-width: 80%;
+    border-collapse: collapse;
+    background: #FFF;
+    color: #222B45;
+    margin: auto;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* إضافة ظل للجدول */
+}
+
+.table thead{
+    background-color: #EFF4FA;
+    color: #8F9BB3;
+}
+.table th,
+.table td{
+    padding: 0.8rem;
+}
+
+.expend {
+    border: 1px blue solid;
+    width: 100%;
+}
+.icons{
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    border: 1px red solid;
+
+}

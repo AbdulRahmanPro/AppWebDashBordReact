@@ -4,7 +4,11 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        blueTextEfeect: '#4A85F6', // هذا لونك المخصص
+      },
+    },
   },
   plugins: [],
 }

@@ -1,6 +1,7 @@
 
 .background_login{
     background-image: url("../img/background.svg");
+    transition: background-img 0.3s ease; /* تعريف التأثير على خلفية العنصر */
     background-repeat: no-repeat;
     background-clip: content-box;
     background-size: cover;

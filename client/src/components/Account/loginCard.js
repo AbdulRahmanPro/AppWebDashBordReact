@@ -25,8 +25,8 @@ export default function LoginCard() {
       });
   };
   return (
-    <div className='background_login w-screen h-screen '>
-      <div className='flex flex-row-reverse justify-between items-center container'>
+    <div className=' w-screen h-screen  '>
+      <div className='flex flex-row-reverse justify-between items-center container  '>
         <section className="Section_login float-right">
           <div className="title mb-4">
             <h1 className="text-4xl mx-auto my-auto">Login</h1>

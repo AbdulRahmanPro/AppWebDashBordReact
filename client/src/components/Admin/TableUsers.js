@@ -7,18 +7,31 @@ import axios from "axios"
 export default function SimpleTable(props) {
 
     const [Account, setAccount] = useState([]); // انتبه إلى الاستخدام الصحيح للدوال useState
-
     useEffect(() => {
         axios("http://localhost:3001/api/Accounts")
-            .then((response) => {
-                setAccount(response.data.Account); // قم بتعيين البيانات الجديدة باستخدام setAccount
-            })
-            .catch((error) => {
-                console.error("حدث خطأ أثناء استدعاء البيانات:", error);
-            });
-    }, []); // أضف مصفوفة فارغة كمراقب للتأثير الثانوي لتنفيذه مرة واحدة عند تحميل المكون
-
-    console.log(Account);
+          .then((response) => {
+            if (Array.isArray(response.data.AccountUser)) {
+              // تحويل البيانات إلى مصفوفة إذا كانت صالحة
+              setAccount(response.data.AccountUser);
+            } else {
+              console.error("البيانات غير صالحة: ", response.data.AccountUser);
+            }
+          })
+          .catch((error) => {
+            console.error("حدث خطأ أثناء استدعاء البيانات:", error);
+          });
+      }, []);
+      console.log(Account)
+      const handleDelete = async (e) => {
+        const _id = e.target.closest('tr').getAttribute('id');
+        try {
+            await axios.delete(`http://localhost:3001/api/Delete/${_id}`);
+            // إزالة العنصر المحذوف من القائمة Account
+            setAccount((prevAccount) => prevAccount.filter(user => user._id !== _id));
+        } catch (error) {
+            console.error("حدث خطأ أثناء الحذف:", error);
+        }
+    }
 
     return (
         <div className="table">
@@ -34,13 +47,13 @@ export default function SimpleTable(props) {
                 </thead>
                 <tbody className="tbody_desing">
                     {Account.map((user) => (
-                        <tr key={user.id}>
+                        <tr key={user._id} id={user._id}>
                             <td>{user.username}</td>
                             <td>{user.email}</td>
                             <td className="expend">
                                 <span className="icons">
-                                    <FontAwesomeIcon icon={faTrash} />
-                                    <FontAwesomeIcon icon={faPenToSquare} />
+                                    <FontAwesomeIcon onClick={handleDelete} className=" text-red-600" icon={faTrash} />
+                                    <FontAwesomeIcon className=" text-green-600" icon={faPenToSquare} />
                                 </span>
                             </td>
                             {/* يمكنك إضافة المزيد من البيانات هنا حسب الحاجة */}

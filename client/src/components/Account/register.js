@@ -52,7 +52,7 @@ export default function Register(props) {
                         <img src={require("../icon/logos_facebook.png")} alt="Facebook" />
                         <img src={require("../icon/bi_github.png")} alt="GitHub" />
                     </div>
-                    <Link to="/login" className=' text-center mt-10'>Already Registered? Login</Link>
+                    <Link to="/login" className=' text-center mt-5'>Already Registered? Login</Link>
                 </section>
                 <div>
                     <h1 className="text-8xl text-center">Roll the Carpet.!</h1>

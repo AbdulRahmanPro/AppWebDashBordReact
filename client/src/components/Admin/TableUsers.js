@@ -41,7 +41,7 @@ export default function SimpleTable(props) {
                     <tr>
                         <th>Username</th>
                         <th>Email</th>
-                        <th >Actions</th>
+                        <th className="expend" >Actions</th>
                         {/* يمكنك إضافة المزيد من الأعمدة هنا حسب الحاجة */}
                     </tr>
                 </thead>

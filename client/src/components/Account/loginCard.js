@@ -2,11 +2,22 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee, faEye } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import Messagesucceeded from '../Popup/message_succeeded';
+import MessageFailed from '../Popup/message_failed';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
+
 export default function LoginCard() {
   const [valueform, setvalueform] = useState({ email: "", password: "" })
+  const [isVisibleSucceeded , setisVisibleSucceeded] = useState(false)
+  const [isVisibleFiled , setisVisibleFiled ] = useState(false)
+  const  handleVisibleSucceeded = ()=>{
+    setisVisibleSucceeded(!isVisibleSucceeded)
+  }
+  const handleVisibleFiled = ()=>{
+    setisVisibleFiled(!isVisibleFiled)
+  }
   const handleSubmit = (e) => {
     const { name, value } = e.target
     setvalueform({ ...valueform, [name]: value })
@@ -17,10 +28,12 @@ export default function LoginCard() {
       .then((res) => {
         console.log(res.data);
         const token = res.data.token;
+        handleVisibleSucceeded()
         // Set the token in a cookie
         Cookies.set('jwt', token, { expires: 1, path: '/' }); // Replace '1' with the desired expiration time in days
       })
       .catch((error) => {
+        handleVisibleFiled()
         console.log(error);
       });
   };
@@ -48,7 +61,6 @@ export default function LoginCard() {
             <img src={require("../icon/logos_facebook.png")} alt="Facebook" />
             <img src={require("../icon/bi_github.png")} alt="GitHub" />
           </div>
-
           <Link to="/register" className=' text-center mt-10'>Don’t have an account ? Signup</Link>
         </section>
         <div>
@@ -57,6 +69,13 @@ export default function LoginCard() {
           </h1>
         </div>
       </div>
+          {
+            isVisibleSucceeded &&  <Messagesucceeded/>
+          }
+          {
+            isVisibleFiled && <MessageFailed/>
+          }
+          
     </div>
   );
 }

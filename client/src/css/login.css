@@ -51,3 +51,32 @@
     border-radius: 12px;
     background: linear-gradient(91deg, #628EFF 9.91%, #8740CD 53.29%, #580475 91.56%);
 }
+
+/* في ملف CSS خاص بالنافذة المنبثقة */
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* رمادي مع شفافية */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999; /* تأكد من أنها تظهر أعلى العناصر الأخرى */
+   }
+  
+  .popup-content {
+    background-color: white; /* خلفية لمحتوى النافذة */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* ظل للنافذة */
+    max-width: 80%;
+    max-height: 80%;
+    overflow: auto;
+
+  }
+  
+  /* تنسيق إضافي حسب احتياجات مشروعك */
+  

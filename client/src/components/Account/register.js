@@ -18,10 +18,8 @@ export default function Register(props) {
             .then((res) => {
                 console.log(res.data);
                 const token = res.data.token ; 
-
                 // Set the token in a cookie
                 Cookies.set('jwt', token, { expires: 1, path: '/' }); // Replace '1' with the desired expiration time in days
-              
             })
             .catch((error) => {
                 console.log(error); 

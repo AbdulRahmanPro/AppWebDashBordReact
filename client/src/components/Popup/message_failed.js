@@ -17,7 +17,7 @@ export default function Message(propos) {
                 The login process was not successful. It is possible that the email and password are incorrect                </p>
                 <p>happy day</p>
             </div>
-            <Link to="/home"><button className='w-52 p-2 rounded-lg bg-green-500'>Continue</button></Link>
+            <Link to="/home"><button className='w-52 p-2 rounded-lg bg-red-500'>Continue</button></Link>
         </div>
         </div>
     )

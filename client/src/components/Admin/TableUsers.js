@@ -1,17 +1,22 @@
 import { useState, useEffect, useMemo } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { faTrash, faPenToSquare, faPlus } from "@fortawesome/free-solid-svg-icons";
+import AddUsers from "../Popup/addUsers";
 import Popup_editUser from "../Popup/popup_editUser";
 import { useTable } from "react-table";
 import axios from "axios"
 
 export default function SimpleTable(props) {
     const [isVisible, setisVisible] = useState(false)
-    const [id ,setid] = useState("")
+    const [isVisibleAddUsers, setisVisibleAddUsers] = useState(false)
+    const [id, setid] = useState("")
     const handleVisible = (e) => {
         const _id = e.target.closest('tr').getAttribute('id');
         setisVisible(!isVisible)
         setid(_id)
+    }
+    const handlisVisibleAddUsers = (e) => {
+        setisVisibleAddUsers(!isVisible)
     }
 
     const [Account, setAccount] = useState([]); // انتبه إلى الاستخدام الصحيح للدوال useState
@@ -29,7 +34,6 @@ export default function SimpleTable(props) {
                 console.error("حدث خطأ أثناء استدعاء البيانات:", error);
             });
     }, []);
-    console.log(Account)
     const handleDelete = async (e) => {
         const _id = e.target.closest('tr').getAttribute('id');
         try {
@@ -42,13 +46,19 @@ export default function SimpleTable(props) {
     }
     return (
         <div className="table">
+            {isVisibleAddUsers && <AddUsers />}
+            <div className="flex flex-row justify-between">
+                <h2 className="text-left text-2xl p-4">List Users</h2>
+                <div className="text-right p-4">
+                    <FontAwesomeIcon className="text-3xl" onClick={handlisVisibleAddUsers} icon={faPlus} />
+                </div>
+            </div>
             <table className="table_desing">
-                <caption className=' text-left  text-2xl p-2'>List Users</caption> {/* إضافة العنوان هنا */}
                 <thead className="thead_desing">
                     <tr>
                         <th>Username</th>
                         <th>Email</th>
-                        <th className="expend" >Actions</th>
+                        <th className="expend">Actions</th>
                         {/* يمكنك إضافة المزيد من الأعمدة هنا حسب الحاجة */}
                     </tr>
                 </thead>
@@ -58,18 +68,20 @@ export default function SimpleTable(props) {
                             <td>{user.username}</td>
                             <td>{user.email}</td>
                             <td className="expend">
-                                <span className="icons">
+                                <span className="icons ">
                                     <FontAwesomeIcon onClick={handleDelete} className=" text-red-600" icon={faTrash} />
                                     <FontAwesomeIcon onClick={handleVisible} className=" text-green-600" icon={faPenToSquare} />
                                 </span>
                             </td>
-                            {/* يمكنك إضافة المزيد من البيانات هنا حسب الحاجة */}
+                            {isVisible && <Popup_editUser id={id} />}
                         </tr>
                     ))}
                 </tbody>
             </table>
-            {isVisible && <Popup_editUser id={id}  />}
-
         </div>
     );
+
 }
+
+
+

@@ -4,6 +4,7 @@ const port = 3001;
 const path = require('path');
 const mongoose = require("mongoose");
 const router_Account = require("./router/Accounts");
+const router_Admin = require('./router/Admin')
 const cors = require('cors');
 const cookieParser = require('cookie-parser'); // استيراد مكتبة cookie-parser
 // استخدام cookie-parser كوسيط لمعالجة الكوكيز
@@ -34,7 +35,9 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 // Use the router middleware
+app.use('/api', router_Admin);
 app.use('/api', router_Account);
+
 
 
 app.get('/', (req, res) => {

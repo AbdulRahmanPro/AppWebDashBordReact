@@ -20,12 +20,12 @@ const registerUser = async (req, res) => {
     if (existingUser) {
       return res.status(409).json({ message: "The account creation process failed. The email is used" });
     }
-    const hashedPassword = await bcrypt.hash(password, 10);
+    // const hashedPassword = await bcrypt.hash(password, 10);
 
     const newUser = new Account({
       email,
       username,
-      password: hashedPassword,
+      password,
       name,
     });
     await newUser.save();
